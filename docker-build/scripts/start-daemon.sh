@@ -2,7 +2,7 @@
 
 mkdir -p $ROCKETMQ_HOME/logs
 
-sed -i 's#\${user.home}/logs#/opt/rocketmq/logs#g' $ROCKETMQ_HOME/conf/logback*.xml
+sed -i 's#\${user.home}/logs/rocketmqlogs#/opt/rocketmq/logs#g' $ROCKETMQ_HOME/conf/logback*.xml
 
 NAMESRV_ADDR=${ROCKETMQ_NAMESRV_ADDR}
 
