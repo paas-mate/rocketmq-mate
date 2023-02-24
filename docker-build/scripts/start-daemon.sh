@@ -6,9 +6,11 @@ sed -i 's#\${user.home}/logs/rocketmqlogs#/opt/rocketmq/logs#g' $ROCKETMQ_HOME/c
 
 NAMESRV_ADDR=${ROCKETMQ_NAMESRV_ADDR}
 
-if [ -z "${REDIS_HOST}" ]
+if [ -z "${NAMESRV_ADDR}" ]
 then
     NAMESRV_ADDR="localhost:9876"
+elif [ -z "${NAMESRV_INTRERFACE}" ]; then
+    NAMESRV_ADDR=$(ip addr show ${NAMESRV_INTRERFACE} | grep inet | grep -v inet6 | grep '/24' | awk '{print $2}' | awk -F '/' '{print $1}')
 fi
 
 if [ "$CLUSTER_ROLE" == "NAMESRV" ]; then
