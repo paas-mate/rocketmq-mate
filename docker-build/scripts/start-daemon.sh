@@ -6,7 +6,7 @@ sed -i 's#\${user.home}/logs/rocketmqlogs#/opt/rocketmq/logs#g' $ROCKETMQ_HOME/c
 
 NAMESRV_ADDR=${ROCKETMQ_NAMESRV_ADDR}
 
-if [ -z "${REDIS_HOST}" ]
+if [ -z "${NAMESRV_ADDR}" ]
 then
     NAMESRV_ADDR="localhost:9876"
 elif [ -z "${NAMESRV_INTRERFACE}" ]; then
